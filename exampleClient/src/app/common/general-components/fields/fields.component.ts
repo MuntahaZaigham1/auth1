@@ -46,7 +46,7 @@ export class FieldsComponent implements OnInit {
   }
   
   
-  addItem(field: string): void {
+  addItem(field: string, type: string): void {
     if (type == "file") {
       (<FormArray>this.itemForm.get(`${field}Source`)).push(new FormControl(''));
       (<FormArray>this.itemForm.get(field)).push(new FormControl(''));
@@ -71,7 +71,7 @@ export class FieldsComponent implements OnInit {
   handleFileInputArray(event, field: any, index) {
     if (event.target.files.length > 0) {
      var file: any[] = event.target.files[0];
-     this.itemForm.get(`${field}Source`).controls[index].setValue(file);
+     (<FormArray>this.itemForm.get(`${field}Source`))[index].setValue(file);
     }
   }
 }

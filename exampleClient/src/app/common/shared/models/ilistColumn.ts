@@ -17,7 +17,7 @@ export interface IListColumn {
   sort: boolean;
   filter: boolean;
   type: ListColumnType;
-  subtype: ListColumnType;
+  subtype?: ListColumnType;
   options?: Array<any>;
 }
 
